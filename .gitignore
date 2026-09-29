@@ -1,0 +1,39 @@
+# local notes
+handoff.md
+
+# project proposal deck (contains student IDs) — kept local only
+/*.pdf
+/*.pptx
+
+# Selenium scraper for Google Maps reviews (against Google ToS) — kept local only
+data_collection/mapsAPI/reviewsCrawler/
+
+# secrets
+.env
+front/.env
+
+# local raw data (Google Maps Places data must not be redistributed)
+data_local/
+
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# node / expo
+node_modules/
+front/.expo/
+front/dist/
+front/web-build/
+*.log
+
+# editor / os
+*.swp
+*.bak
+.DS_Store
+Thumbs.db
+*Zone.Identifier
+
+# screenshots exported from the proposal deck (working folder; curated copies live in docs/screenshots/)
+README_IMG/

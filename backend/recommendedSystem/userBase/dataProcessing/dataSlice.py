@@ -1,0 +1,117 @@
+import os
+DATA_DIR = os.getenv("MITRIP_DATA_DIR", "data_local")  # raw/offline data folder
+import pandas as pd
+
+data = pd.read_csv(
+    f"{DATA_DIR}/MiTrip/Mi-trip 旅遊偏好問卷 (回覆) - encoded.csv", encoding="utf-8"
+)
+forAllColumns = [
+    "18 歲以下",
+    "18-24 歲",
+    "25-34 歲",
+    "35-44 歲",
+    "45-54 歲",
+    "55 歲以上",
+    "其他",
+    "女",
+    "男",
+    "學生",
+    "家管",
+    "工商業人員",
+    "自由業",
+    "軍/警/公/教/人員",
+    "醫護人員",
+    "days",
+    "budget1Day",
+    "budget2Day",
+    "budget3-4Day",
+    "budget5-6Day",
+    "budget7Day",
+    "其他旅遊方式",
+    "自助旅行",
+    "跟團旅行",
+    "都喜歡",
+    "一個月 ~ 三個月前",
+    "一周 ~ 一個月前",
+    "一周前或更短時間",
+    "三個月 ~ 六個月前",
+    "1 個人",
+    "2 個人",
+    "3~5 人",
+    "6 人以上",
+    "旅遊公司官方網站或實體店面",
+    "旅遊書籍或雜誌",
+    "旅遊相關網站或APP",
+    "朋友親戚或同事推薦",
+    "網路搜尋引擎",
+    "不用看到討厭的人",
+    "增長見聞、學習新技能",
+    "放鬆身心、紓解壓力",
+    "獨立探險、尋找新鮮感",
+    "與親友共遊、增進感情",
+    "體驗當地文化、風俗習慣",
+    "Google Maps",
+    "Vlog／部落格",
+    "其他方式",
+    "旅遊網站／APP",
+]
+attractionsColumns = [
+    "文化景點",
+    "自然景點",
+    "期間活動",
+    "休閒娛樂",
+    "娛樂演出",
+    "大眾運輸1",
+    "自駕1",
+    "大眾運輸2",
+    "自駕2",
+    "博物館、藝術展覽等文化活動",
+    "戶外探險、徒步旅行、露營等冒險活動",
+    "瑜珈、SPA等休閒動",
+    "遊樂場、主題公園等娛樂活動",
+    "不太購買商品",
+    "奢侈品等高檔商品",
+    "當地土產、特產",
+    "當地手工藝品、文化用品等特色商品",
+]
+hotelColumns = ["帳篷", "度假飯店", "民宿", "背包客棧", "膠囊旅館", "酒店", "青年旅館", "飯店", "budget1DayH"]
+restaurantColumns = [
+    "中式料理_fav",
+    "日式料理_fav",
+    "法式料理_fav",
+    "泰式料理_fav",
+    "港式料理_fav",
+    "美式料理_fav",
+    "義式料理_fav",
+    "越式料理_fav",
+    "韓式料理_fav",
+    "中式料理",
+    "日式料理",
+    "法式料理",
+    "泰式料理",
+    "港式料理",
+    "美式料理",
+    "義式料理",
+    "越式料理",
+    "韓式料理",
+]
+
+# 將資料切為三種資料集
+# 1. 景點資料集
+attractionsData = data[forAllColumns + attractionsColumns]
+attractionsData.to_csv(
+    f"{DATA_DIR}/MiTrip/qes_attractionsData.csv",
+    encoding="utf-8-sig",
+    index=False,
+)
+# 2. 飯店資料集
+hotelData = data[forAllColumns + hotelColumns]
+hotelData.to_csv(
+    f"{DATA_DIR}/MiTrip/qes_hotelData.csv", encoding="utf-8-sig", index=False
+)
+# 3. 餐廳資料集
+restaurantData = data[forAllColumns + restaurantColumns]
+restaurantData.to_csv(
+    f"{DATA_DIR}/MiTrip/qes_restaurantData.csv", encoding="utf-8-sig", index=False
+)
+print("輸出完畢!")

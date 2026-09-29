@@ -1,0 +1,40 @@
+{
+  "expo": {
+    "name": "Mitrip",
+    "slug": "Mitrip",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "@react-native-community/datetimepicker",
+      "expo-status-bar"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "8decd19c-c4b7-46f7-a675-c18d5d1458b2"
+      }
+    },
+    "owner": "chy1211"
+  }
+}

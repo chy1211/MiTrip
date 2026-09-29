@@ -1,0 +1,12 @@
+flask
+flask-cors
+mysql-connector-python
+python-dotenv
+pandas
+numpy
+scikit-learn
+geopy
+werkzeug
+selenium
+tqdm
+matplotlib
